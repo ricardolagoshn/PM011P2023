@@ -71,7 +71,5 @@ public class ActivityListView extends AppCompatActivity {
                     listapersonas.get(i).getNombres() + " | "+
                     listapersonas.get(i).getApellidos() + " | ");
         }
-
-
     }
 }

@@ -115,6 +115,7 @@ public class ActivityPhoto extends AppCompatActivity {
         }
     }
 
+
     private File createImageFile() throws IOException {
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());

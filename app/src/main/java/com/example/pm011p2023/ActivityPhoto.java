@@ -59,7 +59,8 @@ public class ActivityPhoto extends AppCompatActivity {
         }
         else
         {
-            TomarFoto();
+            dispatchTakePictureIntent();
+            //TomarFoto();
         }
     }
 
@@ -103,8 +104,14 @@ public class ActivityPhoto extends AppCompatActivity {
             //Bitmap imagen = (Bitmap) extra.get("data");
             //imageView.setImageBitmap(imagen);
 
-            File foto = new File(currentPhotoPath);
-            imageView.setImageURI(Uri.fromFile(foto));
+            try {
+                File foto = new File(currentPhotoPath);
+                imageView.setImageURI(Uri.fromFile(foto));
+            }
+            catch (Exception ex)
+            {
+                ex.toString();
+            }
         }
     }
 
@@ -140,7 +147,7 @@ public class ActivityPhoto extends AppCompatActivity {
                 Uri photoURI = FileProvider.getUriForFile(this,
                         "com.example.pm011p2023.fileprovider",
                         photoFile);
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoFile);
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 startActivityForResult(takePictureIntent, REQUEST_IMAGE);
             }
         }
